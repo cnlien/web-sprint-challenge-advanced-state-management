@@ -23,9 +23,9 @@ import Paper from '@material-ui/core/Paper';
 
 const SmurfsList = (props) => {
 
-    console.log(props.data)
+    console.log(props.smurfs)
 
-    if(props.fetching){
+    if(props.isFetching){
         return(
             <Container>
                 <CssBaseline />
@@ -50,9 +50,9 @@ const SmurfsList = (props) => {
                     </TableHead>
 
                     <TableBody>
-                        {props.data.map( smurf => {
+                        {props.smurfs.map( smurf => {
                             return(
-                                <TableRow>
+                                <TableRow key={smurf.id}>
                                     <TableCell>{smurf.name}</TableCell>
                                     <TableCell>{smurf.age}</TableCell>
                                     <TableCell>{smurf.height}</TableCell>
@@ -68,8 +68,8 @@ const SmurfsList = (props) => {
 
 const mapStateToProps = (state) => {
     return{
-        fetching: state.fetching,
-        data: state.data,
+        isFetching: state.isFetching,
+        smurfs: state.smurfs,
         error: state.error
     }
 }
