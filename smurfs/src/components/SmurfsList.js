@@ -5,19 +5,7 @@ import { connect } from 'react-redux';
 import { fetchSmurfs } from '../actions';
 
 // LAYOUT
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-
-
-// STYLES
+import { CircularProgress, Paper, Container } from '@material-ui/core';
 
 // COMPONENTS
 
@@ -27,42 +15,28 @@ const SmurfsList = (props) => {
 
     if(props.isFetching){
         return(
-            <Container>
-                <CssBaseline />
+            <div>
                 <CircularProgress />
                 <h1>Fetching Data</h1>
                 {props.fetchSmurfs()}
-            </Container>
+            </div>
         )
     }
 
     return(
-        <Container>
-            <TableContainer component={Paper}>
-                <h1>Smurfs</h1>
-                <Table size="small">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Name</TableCell>
-                            <TableCell>Age</TableCell>
-                            <TableCell>Height</TableCell>
-                        </TableRow>
-                    </TableHead>
-
-                    <TableBody>
-                        {props.smurfs.map( smurf => {
-                            return(
-                                <TableRow key={smurf.id}>
-                                    <TableCell>{smurf.name}</TableCell>
-                                    <TableCell>{smurf.age}</TableCell>
-                                    <TableCell>{smurf.height}</TableCell>
-                                </TableRow>
-                            )
-                        })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </Container>
+        <div className="village">
+            {props.smurfs.map( smurf => {
+                return(
+                    <Paper className="villageResident" key={smurf.id}>
+                        <Container>
+                            <h2 className="smurfName">{smurf.name}</h2>
+                            <h4 className="smurfAge">Age: {smurf.age}</h4>
+                            <h4 className="smurfHeight">Height: {smurf.height}</h4>
+                        </Container>
+                    </Paper>
+                )
+            })}
+        </div>
     )
 }
 

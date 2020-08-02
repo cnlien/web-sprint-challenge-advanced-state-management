@@ -1,0 +1,48 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap');
+$font-stack: 'Spicy Rice', cursive;
+
+// COLORS
+$bg-grey: #fafafa;
+$smurfblue: #006599;
+
+// SPACING
+$large: 30px;
+$medium: 20px;
+$small: 10px;
+
+// BREAKPOINTS
+$mobile: 400px;
+$tablet: 760px;
+$browser: 1100px;
+
+body {
+    background-color: $bg-grey;
+    font-size: 16px;
+
+    h1 { 
+        color: $smurfblue;
+        font-size: 3rem;
+    }
+}
+
+.App {
+    font-family: $font-stack;
+    margin-top: $large;
+
+    .villageLogo {
+        width: 90%;
+    }
+
+    .village {
+        .villageResident{
+            width: 100%;
+            margin-top: $medium;
+            padding: $medium;
+
+            .smurfName {
+                margin-bottom: $medium;
+            }
+        }
+    }
+}

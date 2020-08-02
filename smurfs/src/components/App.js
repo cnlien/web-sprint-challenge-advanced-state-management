@@ -1,23 +1,33 @@
 import React, { useEffect } from "react";
-import "./App.css";
 import SmurfsList from "./SmurfsList";
 import SmurfsForm from "./SmurfsForm";
 
-import { fetchSmurfs } from '../actions'
-import { Divider } from "@material-ui/core";
+// STYLES
+import { Container, Row, Col } from 'reactstrap'
+import villageBackground from '../images/smurfs-village.png'
 
-const App = (props) => {
+import { fetchSmurfs } from '../actions'
+
+const App = () => {
 
     useEffect(() => {
       fetchSmurfs();
     });
 
     return (
-      <div className="App">
-        <SmurfsForm />
-        <Divider />
-        <SmurfsList />
-      </div>
+      <Container className="App">
+        <Row>
+          <Col>
+            <img className="villageLogo" src={villageBackground} alt="villageLogo" />
+          </Col>
+
+          <Col>
+            <h1>Village Residents</h1>
+            <SmurfsForm />
+            <SmurfsList />
+          </Col>
+        </Row>
+      </Container>
     );
 }
 

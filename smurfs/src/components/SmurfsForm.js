@@ -11,7 +11,8 @@ import {
 } from '../actions'
 
 // COMPONENTS
-import { TextField, Container, Button } from '@material-ui/core'
+
+import { Form, Input, Button, FormGroup, Row, Col } from 'reactstrap'
 
 const SmurfsForm = ({
     values, 
@@ -27,32 +28,49 @@ const SmurfsForm = ({
     };
 
     return(
-        <Container>
-            <form onSubmit={handleSubmit}>
-                <TextField
-                    placeholder="name"
-                    type="text"
-                    name="name"
-                    value={ values.name }
-                    onChange = { onNameChange }
-                />
-
-                <TextField
-                    placeholder="age"
-                    name="age"
-                    value={ values.age }
-                    onChange = { onAgeChange }
-                />
-
-                <TextField
-                    placeholder="height"
-                    name="height"
-                    value={ values.height }
-                    onChange={ onHeightChange }
-                />
+        <div>
+            <Form onSubmit={handleSubmit}>
+                <FormGroup>
+                    <Row>
+                        <Col>
+                            <Input
+                                type="text"
+                                placeholder="name"
+                                name="name"
+                                value={ values.name }
+                                onChange = { onNameChange }
+                                variant="filled"
+                                size="normal"
+                            />
+                        </Col>
+                        <Col>
+                            <Input
+                                type="text"
+                                placeholder="age"
+                                name="age"
+                                value={ values.age }
+                                onChange = { onAgeChange }
+                                variant="filled"
+                                size="normal"
+                            />
+                        </Col>
+                        <Col>
+                            <Input
+                                type="text"
+                                placeholder="height"
+                                name="height"
+                                value={ values.height }
+                                onChange={ onHeightChange }
+                                helperText="centimeters"
+                                variant="filled"
+                                size="normal"
+                            />
+                        </Col>
+                    </Row>  
+                </FormGroup>
                 <Button onClick={handleSubmit}>Add Smurf</Button>
-            </form>
-        </Container>
+            </Form>
+        </div >
     )
 }
 

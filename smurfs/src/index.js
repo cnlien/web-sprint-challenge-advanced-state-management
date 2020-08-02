@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./components/App";
 
 // STYLES
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/global.scss'
 
 // REDUX
